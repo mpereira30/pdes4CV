@@ -15,12 +15,31 @@ for k = 2:length(files)
 %     imshow(all_data(:,:,k))
 end
 
-[Gx,Gy,Gz] = imgradientxyz(img_volume,'central');
+% pick a method for gradient computation: 'sobel', 'prewitt', 'central', 'intermediate'
+method = 'prewitt';
+[Gx,Gy,Gz] = imgradientxyz(img_volume, method);
+
+% Normalize gradient output:
+switch method
+    case 'sobel'
+        Gx = Gx * (1/44);
+        Gy = Gy * (1/44);
+        Gz = Gz * (1/44);
+    case 'prewitt'
+        Gx = Gx * (1/18);
+        Gy = Gy * (1/18);
+        Gz = Gz * (1/18);        
+end
+
 % for k = 1:length(files)
 %    figure(1);
-%    imshow(Gz(:,:,k))
+%    imshow(Gx(:,:,k))
 % end
 
-max_Ix = max(max(max(Gx)))
-max_Iy = max(max(max(Gy)))
-max_It = max(max(max(Gz)))
+max_Ix = squeeze(max(Gx,[],[1 2]))
+max_Iy = squeeze(max(Gx,[],[1 2]))
+
+lambda = 0.01;
+% delta_tau = 2 / (max_Ix^2 + 12 * lambda)
+
+
