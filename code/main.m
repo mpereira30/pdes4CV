@@ -16,7 +16,8 @@ for k = 2:length(files)
 end
 
 % pick a method for gradient computation: 'sobel', 'prewitt', 'central', 'intermediate'
-method = 'sobel';
+method = 'central';
+fprintf("Using '%s' method for gradient computation\n\n", method);
 [Ix,Iy,It] = imgradientxyz(img_volume, method);
 
 % Normalize gradient output:
@@ -44,12 +45,12 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Ix,[],'all'));
 
 % Parameters:
-lambda          = 0.1;
+lambda          = 1.0;
 threshold       = 1e-3; % difference threshold for convergence
 
 % Step size based on CFL condition:
-dt_u            = 2 ./ (max_Ix.^2 + 12 * lambda);
-dt_v            = 2 ./ (max_Iy.^2 + 12 * lambda);
+dt_u            = 1 / (max_Ix^2 + 12 * lambda);
+dt_v            = 1 / (max_Iy^2 + 12 * lambda);
 
 % Constants:
 ones_matrix     = ones(size(Ix));
@@ -66,14 +67,14 @@ diff_u          = Inf;
 diff_v          = Inf;
 
 iter = 1;
-fprintf("Params used:\nlambda: %f\nThreshold: %f\nmax Ix: %f\ndelta tau for u: %f\n\n",lambda, threshold, max_Ix, dt_u);
+fprintf("Params used:\nlambda: %e\nThreshold: %e\nmax Ix: %f\ndelta tau for u: %e\n\n", lambda, threshold, max_Ix, dt_u);
 while( (diff_u > threshold) || (diff_v > threshold) )
     
     % Hold v constant and take a "u-step": 
     current_u   = u;
-    u_xx        = [u(:,2:end,:), zeros(nr,1,nf)] - [zeros(nr,1,nf), u(:,1:end-1,:)]; % x-axis is along columns
-    u_yy        = [u(2:end,:,:); zeros(1,nc,nf)] - [zeros(1,nc,nf); u(1:end-1,:,:)]; % y-axis is along rows
-    u_tt        = cat(3,u(:,:,2:end),zeros(nr,nc,1)) - cat(3,zeros(nr,nc,1),u(:,:,1:end-1));
+    u_xx        = [u(:,2:end,:), zeros(nr,1,nf)] + [zeros(nr,1,nf), u(:,1:end-1,:)]; % x-axis is along columns
+    u_yy        = [u(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); u(1:end-1,:,:)]; % y-axis is along rows
+    u_tt        = cat(3,u(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),u(:,:,1:end-1));
     u           = (ones_matrix - Ix_sq.*dt_u - 6.*lambda.*dt_u).* u ...
                   -(Iy .* Ix .* v + It .* Ix) .* dt_u ... 
                   + lambda .* dt_u .* (u_xx + u_yy + u_tt);
@@ -81,9 +82,9 @@ while( (diff_u > threshold) || (diff_v > threshold) )
 
     % Hold u constant and take a "v-step": 
     current_v   = v;
-    v_xx        = [v(:,2:end,:), zeros(nr,1,nf)] - [zeros(nr,1,nf), v(:,1:end-1,:)]; % x-axis is along columns
-    v_yy        = [v(2:end,:,:); zeros(1,nc,nf)] - [zeros(1,nc,nf); v(1:end-1,:,:)]; % y-axis is along rows
-    v_tt        = cat(3,v(:,:,2:end),zeros(nr,nc,1)) - cat(3,zeros(nr,nc,1),v(:,:,1:end-1));
+    v_xx        = [v(:,2:end,:), zeros(nr,1,nf)] + [zeros(nr,1,nf), v(:,1:end-1,:)]; % x-axis is along columns
+    v_yy        = [v(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); v(1:end-1,:,:)]; % y-axis is along rows
+    v_tt        = cat(3,v(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),v(:,:,1:end-1));
     v           = (ones_matrix - Iy_sq.*dt_v - 6.*lambda.*dt_v).* v ...
                   -(Iy .* Ix .* u + It .* Iy) .* dt_v ... 
                   + lambda .* dt_v .* (v_xx + v_yy + v_tt);
@@ -94,9 +95,19 @@ while( (diff_u > threshold) || (diff_v > threshold) )
 end
 
 
+maxu = max(u, [], 'all');
+minu = min(u, [], 'all');
 
+maxv = max(v, [], 'all');
+minv = min(v, [], 'all');
 
+fprintf("\nFlow range for u: %f to %f\n",minu, maxu);
+fprintf("Flow range for v: %f to %f\n",minv, maxv);
 
+mag = sqrt(u.^2+v.^2);
+maxmag = max(mag, [], 'all');
+
+fprintf("Max flow magnitude: %f\n",maxmag);
 
 
 

@@ -1,0 +1,80 @@
+Ground Truth:
+max flow: 22.1894 flow range: u = -21.321 .. 6.261; v = -0.872 .. 8.512
+
+==================== images: frames 9,10,11,12 =========================
+1.) 
+method: central 
+images: frames 9,10,11,12
+lambda: 1.0
+dt : CFL/2.0
+iterations to convergence: 
+
+(With same hyper-parameters Sobel, Prewitt blow up)
+(With same hyper-parameters, blows up for using old u)
+
+2.) 
+method: central 
+images: frames 9,10,11,12
+lambda: 0.1
+dt : CFL/2.0
+iterations to convergence: 17826
+
+Flow range for u: -96.495768 to 93.935238
+Flow range for v: -94.354196 to 100.497875
+Max flow magnitude: 116.973938
+
+3.) 
+method: central 
+images: frames 9,10,11,12
+lambda: 10.0
+dt : CFL/2.0
+iterations to convergence: 1219
+
+Flow range for u: -12.340240 to 14.631003
+Flow range for v: -14.449112 to 13.580243
+Max flow magnitude: 15.093961
+(With same hyper-parameters, blows up for using old u)
+
+4.) 
+method: central 
+
+lambda: 100.0
+dt : CFL/2.0
+iterations to convergence: 222
+
+Flow range for u: -4.087027 to 4.416948
+Flow range for v: -4.891525 to 4.073782
+Max flow magnitude: 4.941369
+
+========================================================================
+
+============================= ALL 8 images =============================
+
+5.) 
+method: central 
+lambda: 100.0
+dt : CFL/2.0
+iterations to convergence: 397
+
+Flow range for u: -4.051817 to 4.039457
+Flow range for v: -4.460545 to 3.946301
+Max flow magnitude: 4.980264
+
+6.) 
+method: central 
+lambda: 10.0
+dt : CFL/2.0
+iterations to convergence: 1701
+Flow range for u: -12.116193 to 14.151036
+Flow range for v: -12.912276 to 13.103883
+Max flow magnitude: 15.214065
+
+7.) 
+method: central 
+lambda: 1.0
+dt : CFL/2.0
+iterations to convergence: 5643
+
+Flow range for u: -36.497001 to 37.695609
+Flow range for v: -38.236589 to 36.664132
+Max flow magnitude: 41.442182
