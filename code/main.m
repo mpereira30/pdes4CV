@@ -2,8 +2,19 @@ clc
 clear 
 close all
 
-category = 'Urban2/*.png';
-data_path = strcat('../8-image-data/',category);
+category = 'Urban2';
+% Compute rmse from ground truth:
+gtflow = readFlowFile( strcat('gt_data/',category,'_gt.flo'));
+g_u = gtflow(:,:,1);
+g_v = gtflow(:,:,2);
+
+% fix unknown flow
+UNKNOWN_FLOW_THRESH = 1e9;
+idxUnknown = (abs(g_u)> UNKNOWN_FLOW_THRESH) | (abs(g_v)> UNKNOWN_FLOW_THRESH) ;
+g_u(idxUnknown) = 0;
+g_v(idxUnknown) = 0;
+
+data_path = strcat('../8-image-data/',category,'/*.png');
 files = dir(data_path);
 data = imread(strcat(files(1).folder, "/", files(1).name));
 img_volume = zeros(size(data,1), size(data,2), length(files), 'uint8');
@@ -16,7 +27,7 @@ for k = 2:length(files)
 end
 
 % pick a method for gradient computation: 'sobel', 'prewitt', 'central', 'intermediate'
-method = 'central';
+method = 'sobel';
 fprintf("Using '%s' method for gradient computation\n\n", method);
 [Ix,Iy,It] = imgradientxyz(img_volume, method);
 
@@ -45,7 +56,7 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Ix,[],'all'));
 
 % Parameters:
-lambda          = 1.0;
+lambda          = 100.0;
 threshold       = 1e-3; % difference threshold for convergence
 
 % Step size based on CFL condition:
@@ -67,7 +78,8 @@ diff_u          = Inf;
 diff_v          = Inf;
 
 iter = 1;
-fprintf("Params used:\nlambda: %e\nThreshold: %e\nmax Ix: %f\ndelta tau for u: %e\n\n", lambda, threshold, max_Ix, dt_u);
+fprintf("Params used:\nlambda: %e\nThreshold: %e\nmax Ix: %f\nmax Iy: %f\ndt_u: %e\ndt_v: %e\n\n", ...
+        lambda, threshold, max_Ix, max_Iy, dt_u, dt_v);
 while( (diff_u > threshold) || (diff_v > threshold) )
     
     % Hold v constant and take a "u-step": 
@@ -109,9 +121,8 @@ maxmag = max(mag, [], 'all');
 
 fprintf("Max flow magnitude: %f\n",maxmag);
 
-
-
-
+rmse_u = sqrt(mean((g_u - u(:,:,4)).^2,'all'))
+rmse_v = sqrt(mean((g_v - v(:,:,4)).^2,'all'))
 
 
 
