@@ -22,8 +22,6 @@ img_volume(:,:,1) = data;
 for k = 2:length(files)
     filepath = strcat(files(k).folder, "/", files(k).name);
     img_volume(:,:,k) = imread(filepath);
-%     figure(1);
-%     imshow(all_data(:,:,k))
 end
 
 % pick a method for gradient computation: 'sobel', 'prewitt', 'central', 'intermediate'
@@ -43,12 +41,6 @@ switch method
         It = It * (1/18);        
 end
 
-% for k = 1:length(files)
-%    figure(1);
-%    imshow(Gx(:,:,k))
-% end
-
-
 %% First method: Using same delta tau for entire volume 
 
 % Find the maximum x and y gradients for each frame:
@@ -56,12 +48,11 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Ix,[],'all'));
 
 % Parameters:
-lambda          = 2.5;
+lambda_s        = [100, 10, 5, 1, 0.5, 0.1];
+lambda_t        = [100, 10, 5, 1, 0.5, 0.1];
+% lambda_s        = [100, 10];
+% lambda_t        = [100, 10];
 threshold       = 1e-3; % difference threshold for convergence
-
-% Step size based on CFL condition:
-dt_u            = 1 / (max_Ix^2 + 12 * lambda);
-dt_v            = 1 / (max_Iy^2 + 12 * lambda);
 
 % Constants:
 ones_matrix     = ones(size(Ix));
@@ -71,58 +62,83 @@ nf              = size(Ix,3); % number of frames
 Ix_sq           = Ix.^2;
 Iy_sq           = Iy.^2;
 
-% Initialize variables:
-u               = zeros(size(Ix));
-v               = zeros(size(Iy));
-diff_u          = Inf;
-diff_v          = Inf;
+all_rmse_u      = zeros(length(lambda_s),length(lambda_t)); 
+all_rmse_v      = zeros(length(lambda_s),length(lambda_t)); 
 
-iter = 1;
-fprintf("Params used:\nlambda: %e\nThreshold: %e\nmax Ix: %f\nmax Iy: %f\ndt_u: %e\ndt_v: %e\n\n", ...
-        lambda, threshold, max_Ix, max_Iy, dt_u, dt_v);
-while( (diff_u > threshold) || (diff_v > threshold) )
-    
-    % Hold v constant and take a "u-step": 
-    current_u   = u;
-    u_xx        = [u(:,2:end,:), zeros(nr,1,nf)] + [zeros(nr,1,nf), u(:,1:end-1,:)]; % x-axis is along columns
-    u_yy        = [u(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); u(1:end-1,:,:)]; % y-axis is along rows
-    u_tt        = cat(3,u(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),u(:,:,1:end-1));
-    u           = (ones_matrix - Ix_sq.*dt_u - 6.*lambda.*dt_u).* u ...
-                  -(Iy .* Ix .* v + It .* Ix) .* dt_u ... 
-                  + lambda .* dt_u .* (u_xx + u_yy + u_tt);
-    diff_u      = max(abs(u - current_u),[],'all'); 
+flog = fopen('log.txt', 'w'); 
+for n_s = 1:length(lambda_s)
+    for n_t = 1:length(lambda_t)
+        
+        fprintf("n_s=%d/%d, n_t=%d/%d\n", n_s, length(lambda_s), n_t, length(lambda_t));
+        % Initialize variables:
+        u               = zeros(size(Ix));
+        v               = zeros(size(Iy));
+        diff_u          = Inf;
+        diff_v          = Inf;
 
-    % Hold u constant and take a "v-step": 
-    current_v   = v;
-    v_xx        = [v(:,2:end,:), zeros(nr,1,nf)] + [zeros(nr,1,nf), v(:,1:end-1,:)]; % x-axis is along columns
-    v_yy        = [v(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); v(1:end-1,:,:)]; % y-axis is along rows
-    v_tt        = cat(3,v(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),v(:,:,1:end-1));
-    v           = (ones_matrix - Iy_sq.*dt_v - 6.*lambda.*dt_v).* v ...
-                  -(Iy .* Ix .* u + It .* Iy) .* dt_v ... 
-                  + lambda .* dt_v .* (v_xx + v_yy + v_tt);
-    diff_v      = max(abs(v - current_v),[],'all');     
-    
-    fprintf("Iteration: %d, u_diff = %f, v_diff = %f\n", iter, diff_u, diff_v);
-    iter        = iter +1;    
+        % Step size based on CFL condition:
+        dt_u            = 1 / (max_Ix^2 + 8 * lambda_s(n_s) + 4 * lambda_t(n_t));
+        dt_v            = 1 / (max_Iy^2 + 8 * lambda_s(n_s) + 4 * lambda_t(n_t));
+
+%         iter = 1;
+        
+        fprintf(flog, "n_s=%d/%d, n_t=%d/%d\n", n_s, length(lambda_s), n_t, length(lambda_t));
+        fprintf(flog, "Params used:\nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n", ...
+                lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
+
+
+            while( (diff_u > threshold) || (diff_v > threshold) )
+
+                % Hold v constant and take a "u-step": 
+                current_u   = u;
+                u_xx        = [u(:,2:end,:), zeros(nr,1,nf)] + [zeros(nr,1,nf), u(:,1:end-1,:)]; % x-axis is along columns
+                u_yy        = [u(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); u(1:end-1,:,:)]; % y-axis is along rows
+                u_tt        = cat(3,u(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),u(:,:,1:end-1));
+                u           = (ones_matrix - Ix_sq.*dt_u - 4.*lambda_s(n_s).*dt_u - 2.*lambda_t(n_t).*dt_u).* u ...
+                              -(Iy .* Ix .* v + It .* Ix) .* dt_u ... 
+                              + lambda_s(n_s) .* dt_u .* (u_xx + u_yy) + lambda_t(n_t) .* dt_u .* u_tt;
+                diff_u      = max(abs(u - current_u),[],'all'); 
+
+                % Hold u constant and take a "v-step": 
+                current_v   = v;
+                v_xx        = [v(:,2:end,:), zeros(nr,1,nf)] + [zeros(nr,1,nf), v(:,1:end-1,:)]; % x-axis is along columns
+                v_yy        = [v(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); v(1:end-1,:,:)]; % y-axis is along rows
+                v_tt        = cat(3,v(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),v(:,:,1:end-1));
+                v           = (ones_matrix - Iy_sq.*dt_v -4.*lambda_s(n_s).*dt_v - 2.*lambda_t(n_t).*dt_v).* v ...
+                              -(Iy .* Ix .* u + It .* Iy) .* dt_v ... 
+                              + lambda_s(n_s) .* dt_v .* (v_xx + v_yy) + lambda_t(n_t) .* dt_v .* v_tt;
+                diff_v      = max(abs(v - current_v),[],'all');     
+
+%                 fprintf("Iteration: %d, u_diff = %f, v_diff = %f\n", iter, diff_u, diff_v);
+%                 iter        = iter +1;    
+            end
+            
+        maxu = max(u, [], 'all');
+        minu = min(u, [], 'all');
+
+        maxv = max(v, [], 'all');
+        minv = min(v, [], 'all');
+
+        fprintf(flog, "Flow range for u: %f to %f\n",minu, maxu);
+        fprintf(flog, "Flow range for v: %f to %f\n",minv, maxv);
+
+        mag = sqrt(u.^2+v.^2);
+        maxmag = max(mag, [], 'all');
+
+        fprintf(flog, "Max flow magnitude: %f\n",maxmag);
+
+        rmse_u = sqrt(mean((g_u - u(:,:,4)).^2,'all'));
+        rmse_v = sqrt(mean((g_v - v(:,:,4)).^2,'all'));
+        fprintf(flog, "RMSE_u: %f\nRMSE_v: %f\n\n", rmse_u, rmse_v);
+        
+        all_rmse_u(n_s, n_t) = rmse_u;
+        all_rmse_v(n_s, n_t) = rmse_v;
+           
+    end
 end
+fclose(flog);
+save('rmse_errors.mat','all_rmse_u','all_rmse_v')
 
-
-maxu = max(u, [], 'all');
-minu = min(u, [], 'all');
-
-maxv = max(v, [], 'all');
-minv = min(v, [], 'all');
-
-fprintf("\nFlow range for u: %f to %f\n",minu, maxu);
-fprintf("Flow range for v: %f to %f\n",minv, maxv);
-
-mag = sqrt(u.^2+v.^2);
-maxmag = max(mag, [], 'all');
-
-fprintf("Max flow magnitude: %f\n",maxmag);
-
-rmse_u = sqrt(mean((g_u - u(:,:,4)).^2,'all'))
-rmse_v = sqrt(mean((g_v - v(:,:,4)).^2,'all'))
 
 
 
