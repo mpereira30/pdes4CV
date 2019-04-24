@@ -56,7 +56,7 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Ix,[],'all'));
 
 % Parameters:
-lambda          = 100.0;
+lambda          = 2.5;
 threshold       = 1e-3; % difference threshold for convergence
 
 % Step size based on CFL condition:
