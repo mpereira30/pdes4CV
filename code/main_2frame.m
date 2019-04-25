@@ -55,15 +55,15 @@ end
 
 % Find the maximum x and y gradients for each frame:
 max_Ix          = squeeze(max(Ix,[],'all'));
-max_Iy          = squeeze(max(Ix,[],'all'));
+max_Iy          = squeeze(max(Iy,[],'all'));
 
 % Parameters:
 lambda          = 1.0;
 threshold       = 1e-3; % difference threshold for convergence
 
 % Step size based on CFL condition:
-dt_u            = 1 / (max_Ix^2 + 8 * lambda);
-dt_v            = 1 / (max_Iy^2 + 8 * lambda);
+dt_u            = 2 / (max_Ix^2 + 8 * lambda);
+dt_v            = 2 / (max_Iy^2 + 8 * lambda);
 
 % Constants:
 ones_matrix     = ones(size(Ix,1), size(Ix,2));
