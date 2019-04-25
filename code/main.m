@@ -2,8 +2,10 @@ clc
 clear 
 close all
 
-category = 'Urban2';
+% category = 'Urban2';
 % category = 'RubberWhale';
+category = 'Hydrangea';
+
 % Compute rmse from ground truth:
 gtflow = readFlowFile( strcat('gt_data/',category,'_gt.flo'));
 g_u = gtflow(:,:,1);
@@ -49,10 +51,8 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Iy,[],'all'));
 
 % Parameters:
-lambda_s        = [100, 10, 5, 1, 0.5, 0.1, 0.01, 0.001];
-lambda_t        = [100, 10, 5, 1, 0.5, 0.1, 0.01, 0.001];
-% lambda_s        = [100];
-% lambda_t        = [0.0001];
+lambda_s        = [100, 10, 5, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001];
+lambda_t        = [100, 10, 5, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001];
 threshold       = 1e-3; % difference threshold for convergence
 
 % Constants:
