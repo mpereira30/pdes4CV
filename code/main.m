@@ -2,8 +2,8 @@ clc
 clear 
 close all
 
-category = 'Urban2';
-% category = 'RubberWhale';
+% category = 'Urban2';
+category = 'RubberWhale';
 % Compute rmse from ground truth:
 gtflow = readFlowFile( strcat('gt_data/',category,'_gt.flo'));
 g_u = gtflow(:,:,1);
@@ -112,7 +112,8 @@ for n_s = 1:length(lambda_s)
 %                 fprintf("Iteration: %d, u_diff = %f, v_diff = %f\n", iter, diff_u, diff_v);
 %                 iter        = iter +1;  
                 if ((diff_u > 1e3) || (diff_v > 1e3))
-                    fprintf("Failed for lambda_s=%f, lambda_t=%f\n", lambda_s(n_s), lambda_t(n_t));
+                    fprintf(flog, "*************Failed for lambda_s=%f, lambda_t=%f ***********\n\n", lambda_s(n_s), lambda_t(n_t));
+                    fprintf("*************Failed for lambda_s=%f, lambda_t=%f ***********\n\n", lambda_s(n_s), lambda_t(n_t));
                     break;
                 end
             end
