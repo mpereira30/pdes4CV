@@ -49,10 +49,10 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Iy,[],'all'));
 
 % Parameters:
-% lambda_s        = [100, 10, 5, 1, 0.5, 0.1];
-% lambda_t        = [100, 10, 5, 1, 0.5, 0.1];
-lambda_s        = [100];
-lambda_t        = [0.0001];
+lambda_s        = [100, 10, 5, 1, 0.5, 0.1, 0.01, 0.001];
+lambda_t        = [100, 10, 5, 1, 0.5, 0.1, 0.01, 0.001];
+% lambda_s        = [100];
+% lambda_t        = [0.0001];
 threshold       = 1e-3; % difference threshold for convergence
 
 % Constants:
@@ -70,7 +70,6 @@ flog = fopen('log.txt', 'w');
 for n_s = 1:length(lambda_s)
     for n_t = 1:length(lambda_t)
         
-        fprintf("n_s=%d/%d, n_t=%d/%d\n", n_s, length(lambda_s), n_t, length(lambda_t));
         % Initialize variables:
         u               = zeros(size(Ix));
         v               = zeros(size(Iy));
@@ -81,13 +80,12 @@ for n_s = 1:length(lambda_s)
         dt_u            = 2 / (max_Ix^2 + 8 * lambda_s(n_s) + 4 * lambda_t(n_t));
         dt_v            = 2 / (max_Iy^2 + 8 * lambda_s(n_s) + 4 * lambda_t(n_t));
 
-        iter = 1;
+%         iter = 1;
         
-        fprintf(flog, "n_s=%d/%d, n_t=%d/%d\n", n_s, length(lambda_s), n_t, length(lambda_t));
-        fprintf(flog, "Params used:\nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n", ...
-                lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
-        fprintf("Params used:\nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n", ...
-                lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
+        fprintf(flog, "Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n\n", ...
+                n_s, length(lambda_s), n_t, length(lambda_t),lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
+        fprintf("Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n\n", ...
+                n_s, length(lambda_s), n_t, length(lambda_t),lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
 
             while( (diff_u > threshold) || (diff_v > threshold) )
 
@@ -107,12 +105,16 @@ for n_s = 1:length(lambda_s)
                 v_yy        = [v(2:end,:,:); zeros(1,nc,nf)] + [zeros(1,nc,nf); v(1:end-1,:,:)]; % y-axis is along rows
                 v_tt        = cat(3,v(:,:,2:end),zeros(nr,nc,1)) + cat(3,zeros(nr,nc,1),v(:,:,1:end-1));
                 v           = (ones_matrix - Iy_sq.*dt_v -4.*lambda_s(n_s).*dt_v - 2.*lambda_t(n_t).*dt_v).* v ...
-                              -(Iy .* Ix .* current_u + It .* Iy) .* dt_v ... 
+                              -(Iy .* Ix .* u + It .* Iy) .* dt_v ... 
                               + lambda_s(n_s) .* dt_v .* (v_xx + v_yy) + lambda_t(n_t) .* dt_v .* v_tt;
                 diff_v      = max(abs(v - current_v),[],'all');     
 
-                fprintf("Iteration: %d, u_diff = %f, v_diff = %f\n", iter, diff_u, diff_v);
-                iter        = iter +1;    
+%                 fprintf("Iteration: %d, u_diff = %f, v_diff = %f\n", iter, diff_u, diff_v);
+%                 iter        = iter +1;  
+                if ((diff_u > 1e3) || (diff_v > 1e3))
+                    fprintf("Failed for lambda_s=%f, lambda_t=%f\n", lambda_s(n_s), lambda_t(n_t));
+                    break;
+                end
             end
             
         maxu = max(u, [], 'all');
