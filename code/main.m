@@ -71,7 +71,7 @@ all_rmse_v      = zeros(length(lambda_s),length(lambda_t));
 num_s = length(lambda_s);
 num_t = length(lambda_t);
 
-flog = fopen(strcat('log_',category,'.txt'), 'w'); 
+% flog = fopen(strcat('log_',category,'.txt'), 'w'); 
 for n_s = 1:num_s
     parfor n_t = 1:num_t
         
@@ -117,7 +117,7 @@ for n_s = 1:num_s
 %                 fprintf("Iteration: %d, u_diff = %f, v_diff = %f\n", iter, diff_u, diff_v);
 %                 iter        = iter +1;  
                 if ((diff_u > 1e3) || (diff_v > 1e3))
-                    fprintf(flog, "*************Failed for lambda_s=%f, lambda_t=%f ***********\n\n", lambda_s(n_s), lambda_t(n_t));
+%                     fprintf(flog, "*************Failed for lambda_s=%f, lambda_t=%f ***********\n\n", lambda_s(n_s), lambda_t(n_t));
                     fprintf("*************Failed for lambda_s=%f, lambda_t=%f ***********\n\n", lambda_s(n_s), lambda_t(n_t));
                     break;
                 end
@@ -129,13 +129,13 @@ for n_s = 1:num_s
         maxv = max(v, [], 'all');
         minv = min(v, [], 'all');
 
-        fprintf(flog, "Flow range for u: %f to %f\n",minu, maxu);
-        fprintf(flog, "Flow range for v: %f to %f\n",minv, maxv);
+%         fprintf(flog, "Flow range for u: %f to %f\n",minu, maxu);
+%         fprintf(flog, "Flow range for v: %f to %f\n",minv, maxv);
 
         mag = sqrt(u.^2+v.^2);
         maxmag = max(mag, [], 'all');
 
-        fprintf(flog, "Max flow magnitude: %f\n",maxmag);
+%         fprintf(flog, "Max flow magnitude: %f\n",maxmag);
 
         rmse_u = sqrt(mean((g_u - u(:,:,4)).^2,'all'));
         rmse_v = sqrt(mean((g_v - v(:,:,4)).^2,'all'));
@@ -149,7 +149,7 @@ for n_s = 1:num_s
            
     end
 end
-fclose(flog);
+% fclose(flog);
 % save('rmse_errors.mat','all_rmse_u','all_rmse_v')
 
 
