@@ -140,9 +140,8 @@ for n_s = 1:num_s
         rmse_u = sqrt(mean((g_u - u(:,:,4)).^2,'all'));
         rmse_v = sqrt(mean((g_v - v(:,:,4)).^2,'all'));
 %         fprintf(flog, "RMSE_u: %f\nRMSE_v: %f\n\n", rmse_u, rmse_v);
-        fprintf("Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f, lambda_t: %f\ndt_u: %e, dt_v: %e\n", ...
-                n_s, num_s, n_t, num_t, lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);    
-        fprintf("RMSE_u: %f, RMSE_v: %f\n\n", rmse_u, rmse_v);        
+        fprintf("Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f, lambda_t: %f\ndt_u: %e, dt_v: %e\nRMSE_u: %f, RMSE_v: %f\n\n", ...
+                n_s, num_s, n_t, num_t, lambda_s(n_s), lambda_t(n_t), dt_u, dt_v, rmse_u, rmse_v);    
         
 %         all_rmse_u(n_s, n_t) = rmse_u;
 %         all_rmse_v(n_s, n_t) = rmse_v;
