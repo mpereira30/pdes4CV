@@ -51,7 +51,9 @@ max_Ix          = squeeze(max(Ix,[],'all'));
 max_Iy          = squeeze(max(Iy,[],'all'));
 
 % Parameters:
-lambda_s        = [100, 10, 5, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001];
+% lambda_s        = [100, 10, 5, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001];
+% lambda_t        = [100, 10, 5, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001];
+lambda_s        = [0.005, 0.001];
 lambda_t        = [100, 10, 5, 1, 0.5, 0.1, 0.05, 0.01, 0.005, 0.001];
 threshold       = 1e-3; % difference threshold for convergence
 
@@ -66,9 +68,12 @@ Iy_sq           = Iy.^2;
 all_rmse_u      = zeros(length(lambda_s),length(lambda_t)); 
 all_rmse_v      = zeros(length(lambda_s),length(lambda_t)); 
 
+num_s = length(lambda_s);
+num_t = length(lambda_t);
+
 flog = fopen(strcat('log_',category,'.txt'), 'w'); 
-for n_s = 1:length(lambda_s)
-    for n_t = 1:length(lambda_t)
+for n_s = 1:num_s
+    parfor n_t = 1:num_t
         
         % Initialize variables:
         u               = zeros(size(Ix));
@@ -82,10 +87,10 @@ for n_s = 1:length(lambda_s)
 
 %         iter = 1;
         
-        fprintf(flog, "Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n\n", ...
-                n_s, length(lambda_s), n_t, length(lambda_t),lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
-        fprintf("Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n\n", ...
-                n_s, length(lambda_s), n_t, length(lambda_t),lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
+%         fprintf(flog, "Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n\n", ...
+%                 n_s, length(lambda_s), n_t, length(lambda_t),lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
+%         fprintf("Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f\nlambda_t: %f\ndt_u: %e\ndt_v: %e\n\n", ...
+%                 n_s, length(lambda_s), n_t, length(lambda_t),lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);
 
             while( (diff_u > threshold) || (diff_v > threshold) )
 
@@ -134,15 +139,18 @@ for n_s = 1:length(lambda_s)
 
         rmse_u = sqrt(mean((g_u - u(:,:,4)).^2,'all'));
         rmse_v = sqrt(mean((g_v - v(:,:,4)).^2,'all'));
-        fprintf(flog, "RMSE_u: %f\nRMSE_v: %f\n\n", rmse_u, rmse_v);
+%         fprintf(flog, "RMSE_u: %f\nRMSE_v: %f\n\n", rmse_u, rmse_v);
+        fprintf("Params used: n_s=%d/%d, n_t=%d/%d, \nlambda_s: %f, lambda_t: %f\ndt_u: %e, dt_v: %e\n", ...
+                n_s, num_s, n_t, num_t, lambda_s(n_s), lambda_t(n_t), dt_u, dt_v);    
+        fprintf("RMSE_u: %f, RMSE_v: %f\n\n", rmse_u, rmse_v);        
         
-        all_rmse_u(n_s, n_t) = rmse_u;
-        all_rmse_v(n_s, n_t) = rmse_v;
+%         all_rmse_u(n_s, n_t) = rmse_u;
+%         all_rmse_v(n_s, n_t) = rmse_v;
            
     end
 end
 fclose(flog);
-save('rmse_errors.mat','all_rmse_u','all_rmse_v')
+% save('rmse_errors.mat','all_rmse_u','all_rmse_v')
 
 
 
