@@ -1,0 +1,12 @@
+Params used: n_s=1/1, n_t=1/1, 
+lambda_s: 100.000000
+lambda_t: 0.001000
+dt_u: 4.648469e-04
+dt_v: 3.526460e-04
+
+Flow range for u: -8.693889 to 8.004554
+Flow range for v: -7.507510 to 6.342702
+Max flow magnitude: 9.045173
+RMSE_u: 3.100828
+RMSE_v: 0.659303
+
