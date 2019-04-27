@@ -1,0 +1,954 @@
+Params used: n_s=1/10, n_t=1/10, 
+lambda_s: 100.000000
+lambda_t: 100.000000
+dt_u: 1.551261e-04
+dt_v: 1.939979e-04
+
+Flow range for u: -2.137825 to 2.779667
+Flow range for v: -1.976406 to 2.371866
+Max flow magnitude: 2.828757
+RMSE_u: 0.968153
+RMSE_v: 0.470343
+
+Params used: n_s=1/10, n_t=2/10, 
+lambda_s: 100.000000
+lambda_t: 10.000000
+dt_u: 1.643016e-04
+dt_v: 2.085639e-04
+
+Flow range for u: -2.671818 to 3.075342
+Flow range for v: -2.971599 to 3.136226
+Max flow magnitude: 3.190791
+RMSE_u: 0.847099
+RMSE_v: 0.442146
+
+Params used: n_s=1/10, n_t=3/10, 
+lambda_s: 100.000000
+lambda_t: 5.000000
+dt_u: 1.648433e-04
+dt_v: 2.094375e-04
+
+Flow range for u: -2.747524 to 3.124376
+Flow range for v: -3.174711 to 3.252446
+Max flow magnitude: 3.358402
+RMSE_u: 0.838731
+RMSE_v: 0.439616
+
+Params used: n_s=1/10, n_t=4/10, 
+lambda_s: 100.000000
+lambda_t: 1.000000
+dt_u: 1.652792e-04
+dt_v: 2.101417e-04
+
+Flow range for u: -2.846868 to 3.171897
+Flow range for v: -3.393216 to 3.397206
+Max flow magnitude: 3.571501
+RMSE_u: 0.835481
+RMSE_v: 0.438492
+
+Params used: n_s=1/10, n_t=5/10, 
+lambda_s: 100.000000
+lambda_t: 0.500000
+dt_u: 1.653338e-04
+dt_v: 2.102300e-04
+
+Flow range for u: -2.865867 to 3.178517
+Flow range for v: -3.427608 to 3.420600
+Max flow magnitude: 3.628093
+RMSE_u: 0.835099
+RMSE_v: 0.438365
+
+Params used: n_s=1/10, n_t=6/10, 
+lambda_s: 100.000000
+lambda_t: 0.100000
+dt_u: 1.653776e-04
+dt_v: 2.103008e-04
+
+Flow range for u: -2.881605 to 3.183832
+Flow range for v: -3.455267 to 3.440105
+Max flow magnitude: 3.675749
+RMSE_u: 0.835125
+RMSE_v: 0.438364
+
+Params used: n_s=1/10, n_t=7/10, 
+lambda_s: 100.000000
+lambda_t: 0.050000
+dt_u: 1.653831e-04
+dt_v: 2.103096e-04
+
+Flow range for u: -2.883791 to 3.184528
+Flow range for v: -3.459281 to 3.442826
+Max flow magnitude: 3.682488
+RMSE_u: 0.835023
+RMSE_v: 0.438334
+
+Params used: n_s=1/10, n_t=8/10, 
+lambda_s: 100.000000
+lambda_t: 0.010000
+dt_u: 1.653874e-04
+dt_v: 2.103167e-04
+
+Flow range for u: -2.885384 to 3.185056
+Flow range for v: -3.462009 to 3.444811
+Max flow magnitude: 3.687361
+RMSE_u: 0.835057
+RMSE_v: 0.438343
+
+Params used: n_s=1/10, n_t=9/10, 
+lambda_s: 100.000000
+lambda_t: 0.005000
+dt_u: 1.653880e-04
+dt_v: 2.103176e-04
+
+Flow range for u: -2.885584 to 3.185123
+Flow range for v: -3.462351 to 3.445060
+Max flow magnitude: 3.687973
+RMSE_u: 0.835061
+RMSE_v: 0.438344
+
+Params used: n_s=1/10, n_t=10/10, 
+lambda_s: 100.000000
+lambda_t: 0.001000
+dt_u: 1.653884e-04
+dt_v: 2.103183e-04
+
+Flow range for u: -2.885744 to 3.185176
+Flow range for v: -3.462624 to 3.445260
+Max flow magnitude: 3.688463
+RMSE_u: 0.835064
+RMSE_v: 0.438345
+
+Params used: n_s=2/10, n_t=1/10, 
+lambda_s: 10.000000
+lambda_t: 100.000000
+dt_u: 1.746308e-04
+dt_v: 2.254947e-04
+
+Flow range for u: -2.633540 to 3.215712
+Flow range for v: -2.661102 to 2.983835
+Max flow magnitude: 3.252548
+RMSE_u: 0.991552
+RMSE_v: 0.484412
+
+Params used: n_s=2/10, n_t=2/10, 
+lambda_s: 10.000000
+lambda_t: 10.000000
+dt_u: 1.863458e-04
+dt_v: 2.454172e-04
+
+Flow range for u: -4.102037 to 4.019063
+Flow range for v: -4.216094 to 4.325761
+Max flow magnitude: 4.676864
+RMSE_u: 0.887353
+RMSE_v: 0.467700
+
+Params used: n_s=2/10, n_t=3/10, 
+lambda_s: 10.000000
+lambda_t: 5.000000
+dt_u: 1.870429e-04
+dt_v: 2.466277e-04
+
+Flow range for u: -4.625143 to 4.268884
+Flow range for v: -4.574699 to 4.827166
+Max flow magnitude: 5.000532
+RMSE_u: 0.885769
+RMSE_v: 0.469754
+
+Params used: n_s=2/10, n_t=4/10, 
+lambda_s: 10.000000
+lambda_t: 1.000000
+dt_u: 1.876043e-04
+dt_v: 2.476048e-04
+
+Flow range for u: -5.367745 to 4.531973
+Flow range for v: -5.067058 to 5.522920
+Max flow magnitude: 5.813333
+RMSE_u: 0.882769
+RMSE_v: 0.473366
+
+Params used: n_s=2/10, n_t=5/10, 
+lambda_s: 10.000000
+lambda_t: 0.500000
+dt_u: 1.876747e-04
+dt_v: 2.477274e-04
+
+Flow range for u: -5.521807 to 4.574355
+Flow range for v: -5.369581 to 5.692841
+Max flow magnitude: 6.193898
+RMSE_u: 0.871603
+RMSE_v: 0.471084
+
+Params used: n_s=2/10, n_t=6/10, 
+lambda_s: 10.000000
+lambda_t: 0.100000
+dt_u: 1.877311e-04
+dt_v: 2.478257e-04
+
+Flow range for u: -5.664190 to 4.611258
+Flow range for v: -5.687832 to 5.860891
+Max flow magnitude: 6.567442
+RMSE_u: 0.859175
+RMSE_v: 0.468458
+
+Params used: n_s=2/10, n_t=7/10, 
+lambda_s: 10.000000
+lambda_t: 0.050000
+dt_u: 1.877381e-04
+dt_v: 2.478379e-04
+
+Flow range for u: -5.683512 to 4.616123
+Flow range for v: -5.734718 to 5.884856
+Max flow magnitude: 6.619859
+RMSE_u: 0.857279
+RMSE_v: 0.468051
+
+Params used: n_s=2/10, n_t=8/10, 
+lambda_s: 10.000000
+lambda_t: 0.010000
+dt_u: 1.877438e-04
+dt_v: 2.478478e-04
+
+Flow range for u: -5.699209 to 4.620058
+Flow range for v: -5.773533 to 5.904533
+Max flow magnitude: 6.662709
+RMSE_u: 0.855722
+RMSE_v: 0.467720
+
+Params used: n_s=2/10, n_t=9/10, 
+lambda_s: 10.000000
+lambda_t: 0.005000
+dt_u: 1.877445e-04
+dt_v: 2.478490e-04
+
+Flow range for u: -5.701240 to 4.620561
+Flow range for v: -5.778655 to 5.907150
+Max flow magnitude: 6.668326
+RMSE_u: 0.855485
+RMSE_v: 0.467666
+
+Params used: n_s=2/10, n_t=10/10, 
+lambda_s: 10.000000
+lambda_t: 0.001000
+dt_u: 1.877450e-04
+dt_v: 2.478500e-04
+
+Flow range for u: -5.702818 to 4.620956
+Flow range for v: -5.782598 to 5.909135
+Max flow magnitude: 6.672645
+RMSE_u: 0.855331
+RMSE_v: 0.467634
+
+Params used: n_s=3/10, n_t=1/10, 
+lambda_s: 5.000000
+lambda_t: 100.000000
+dt_u: 1.758592e-04
+dt_v: 2.275471e-04
+
+Flow range for u: -2.770683 to 3.307090
+Flow range for v: -3.021892 to 3.101679
+Max flow magnitude: 3.329637
+RMSE_u: 0.995871
+RMSE_v: 0.488554
+
+Params used: n_s=3/10, n_t=2/10, 
+lambda_s: 5.000000
+lambda_t: 10.000000
+dt_u: 1.877452e-04
+dt_v: 2.478502e-04
+
+Flow range for u: -4.553715 to 4.399380
+Flow range for v: -5.014320 to 4.771201
+Max flow magnitude: 5.101462
+RMSE_u: 0.901544
+RMSE_v: 0.480201
+
+Params used: n_s=3/10, n_t=3/10, 
+lambda_s: 5.000000
+lambda_t: 5.000000
+dt_u: 1.884528e-04
+dt_v: 2.490849e-04
+
+Flow range for u: -5.149649 to 4.739461
+Flow range for v: -5.330804 to 5.366803
+Max flow magnitude: 5.670829
+RMSE_u: 0.903704
+RMSE_v: 0.485105
+
+Params used: n_s=3/10, n_t=4/10, 
+lambda_s: 5.000000
+lambda_t: 1.000000
+dt_u: 1.890228e-04
+dt_v: 2.500816e-04
+
+Flow range for u: -6.052469 to 5.115878
+Flow range for v: -6.397848 to 6.260587
+Max flow magnitude: 7.303783
+RMSE_u: 0.894662
+RMSE_v: 0.490532
+
+Params used: n_s=3/10, n_t=5/10, 
+lambda_s: 5.000000
+lambda_t: 0.500000
+dt_u: 1.890942e-04
+dt_v: 2.502068e-04
+
+Flow range for u: -6.425415 to 5.179572
+Flow range for v: -6.653381 to 6.478671
+Max flow magnitude: 7.930054
+RMSE_u: 0.882714
+RMSE_v: 0.489070
+
+Params used: n_s=3/10, n_t=6/10, 
+lambda_s: 5.000000
+lambda_t: 0.100000
+dt_u: 1.891515e-04
+dt_v: 2.503070e-04
+
+Flow range for u: -6.969885 to 5.238053
+Flow range for v: -6.897043 to 6.703352
+Max flow magnitude: 8.602569
+RMSE_u: 0.867800
+RMSE_v: 0.486926
+
+Params used: n_s=3/10, n_t=7/10, 
+lambda_s: 5.000000
+lambda_t: 0.050000
+dt_u: 1.891586e-04
+dt_v: 2.503195e-04
+
+Flow range for u: -7.050000 to 5.246148
+Flow range for v: -6.930718 to 6.736717
+Max flow magnitude: 8.702777
+RMSE_u: 0.865271
+RMSE_v: 0.486528
+
+Params used: n_s=3/10, n_t=8/10, 
+lambda_s: 5.000000
+lambda_t: 0.010000
+dt_u: 1.891644e-04
+dt_v: 2.503295e-04
+
+Flow range for u: -7.116379 to 5.252782
+Flow range for v: -6.958154 to 6.764471
+Max flow magnitude: 8.786005
+RMSE_u: 0.863129
+RMSE_v: 0.486190
+
+Params used: n_s=3/10, n_t=9/10, 
+lambda_s: 5.000000
+lambda_t: 0.005000
+dt_u: 1.891651e-04
+dt_v: 2.503308e-04
+
+Flow range for u: -7.124913 to 5.253628
+Flow range for v: -6.961641 to 6.768052
+Max flow magnitude: 8.796724
+RMSE_u: 0.862840
+RMSE_v: 0.486142
+
+Params used: n_s=3/10, n_t=10/10, 
+lambda_s: 5.000000
+lambda_t: 0.001000
+dt_u: 1.891656e-04
+dt_v: 2.503318e-04
+
+Flow range for u: -7.131751 to 5.254305
+Flow range for v: -6.964432 to 6.770922
+Max flow magnitude: 8.805316
+RMSE_u: 0.862609
+RMSE_v: 0.486105
+
+Params used: n_s=4/10, n_t=1/10, 
+lambda_s: 1.000000
+lambda_t: 100.000000
+dt_u: 1.768544e-04
+dt_v: 2.292161e-04
+
+Flow range for u: -2.903140 to 3.421429
+Flow range for v: -3.483910 to 3.360485
+Max flow magnitude: 3.549560
+RMSE_u: 0.992825
+RMSE_v: 0.492976
+
+Params used: n_s=4/10, n_t=2/10, 
+lambda_s: 1.000000
+lambda_t: 10.000000
+dt_u: 1.888799e-04
+dt_v: 2.498317e-04
+
+Flow range for u: -5.249157 to 4.801046
+Flow range for v: -6.503084 to 5.796089
+Max flow magnitude: 6.759667
+RMSE_u: 0.887797
+RMSE_v: 0.497899
+
+Params used: n_s=4/10, n_t=3/10, 
+lambda_s: 1.000000
+lambda_t: 5.000000
+dt_u: 1.895962e-04
+dt_v: 2.510863e-04
+
+Flow range for u: -6.007446 to 5.261033
+Flow range for v: -7.410264 to 6.537517
+Max flow magnitude: 7.671451
+RMSE_u: 0.883291
+RMSE_v: 0.506076
+
+Params used: n_s=4/10, n_t=4/10, 
+lambda_s: 1.000000
+lambda_t: 1.000000
+dt_u: 1.901731e-04
+dt_v: 2.520991e-04
+
+Flow range for u: -8.532707 to 7.188185
+Flow range for v: -8.863654 to 7.832017
+Max flow magnitude: 10.420549
+RMSE_u: 0.910577
+RMSE_v: 0.534914
+
+Params used: n_s=4/10, n_t=5/10, 
+lambda_s: 1.000000
+lambda_t: 0.500000
+dt_u: 1.902454e-04
+dt_v: 2.522262e-04
+
+Flow range for u: -9.663684 to 8.646179
+Flow range for v: -9.146218 to 9.116217
+Max flow magnitude: 11.810197
+RMSE_u: 0.893559
+RMSE_v: 0.536898
+
+Params used: n_s=4/10, n_t=6/10, 
+lambda_s: 1.000000
+lambda_t: 0.100000
+dt_u: 1.903033e-04
+dt_v: 2.523281e-04
+
+Flow range for u: -10.989855 to 10.430001
+Flow range for v: -10.050167 to 11.232474
+Max flow magnitude: 13.386879
+RMSE_u: 0.872140
+RMSE_v: 0.539729
+
+Params used: n_s=4/10, n_t=7/10, 
+lambda_s: 1.000000
+lambda_t: 0.050000
+dt_u: 1.903106e-04
+dt_v: 2.523408e-04
+
+Flow range for u: -11.197064 to 10.720428
+Flow range for v: -10.294195 to 11.616310
+Max flow magnitude: 13.639080
+RMSE_u: 0.868546
+RMSE_v: 0.540360
+
+Params used: n_s=4/10, n_t=8/10, 
+lambda_s: 1.000000
+lambda_t: 0.010000
+dt_u: 1.903164e-04
+dt_v: 2.523510e-04
+
+Flow range for u: -11.372974 to 10.968089
+Flow range for v: -10.509397 to 11.955645
+Max flow magnitude: 13.854715
+RMSE_u: 0.865495
+RMSE_v: 0.540982
+
+Params used: n_s=4/10, n_t=9/10, 
+lambda_s: 1.000000
+lambda_t: 0.005000
+dt_u: 1.903171e-04
+dt_v: 2.523523e-04
+
+Flow range for u: -11.395714 to 11.000180
+Flow range for v: -10.537838 to 12.000506
+Max flow magnitude: 13.882724
+RMSE_u: 0.865092
+RMSE_v: 0.541066
+
+Params used: n_s=4/10, n_t=10/10, 
+lambda_s: 1.000000
+lambda_t: 0.001000
+dt_u: 1.903177e-04
+dt_v: 2.523533e-04
+
+Flow range for u: -11.414017 to 11.026010
+Flow range for v: -10.560817 to 12.036765
+Max flow magnitude: 13.905283
+RMSE_u: 0.864771
+RMSE_v: 0.541136
+
+Params used: n_s=5/10, n_t=1/10, 
+lambda_s: 0.500000
+lambda_t: 100.000000
+dt_u: 1.769796e-04
+dt_v: 2.294265e-04
+
+Flow range for u: -2.921762 to 3.442563
+Flow range for v: -3.556865 to 3.451013
+Max flow magnitude: 3.628603
+RMSE_u: 0.991562
+RMSE_v: 0.493776
+
+Params used: n_s=5/10, n_t=2/10, 
+lambda_s: 0.500000
+lambda_t: 10.000000
+dt_u: 1.890228e-04
+dt_v: 2.500816e-04
+
+Flow range for u: -5.415751 to 4.846677
+Flow range for v: -7.210962 to 6.284819
+Max flow magnitude: 7.486757
+RMSE_u: 0.879612
+RMSE_v: 0.504049
+
+Params used: n_s=5/10, n_t=3/10, 
+lambda_s: 0.500000
+lambda_t: 5.000000
+dt_u: 1.897401e-04
+dt_v: 2.513387e-04
+
+Flow range for u: -6.478913 to 5.316832
+Flow range for v: -8.004864 to 7.144291
+Max flow magnitude: 8.198800
+RMSE_u: 0.870731
+RMSE_v: 0.513868
+
+Params used: n_s=5/10, n_t=4/10, 
+lambda_s: 0.500000
+lambda_t: 1.000000
+dt_u: 1.903178e-04
+dt_v: 2.523535e-04
+
+Flow range for u: -9.334460 to 7.995057
+Flow range for v: -9.407811 to 8.916800
+Max flow magnitude: 11.468061
+RMSE_u: 0.913322
+RMSE_v: 0.553057
+
+Params used: n_s=5/10, n_t=5/10, 
+lambda_s: 0.500000
+lambda_t: 0.500000
+dt_u: 1.903903e-04
+dt_v: 2.524810e-04
+
+Flow range for u: -10.833175 to 9.686017
+Flow range for v: -10.655426 to 10.860516
+Max flow magnitude: 13.175534
+RMSE_u: 0.910168
+RMSE_v: 0.562445
+
+Params used: n_s=5/10, n_t=6/10, 
+lambda_s: 0.500000
+lambda_t: 0.100000
+dt_u: 1.904483e-04
+dt_v: 2.525830e-04
+
+Flow range for u: -12.791892 to 11.990317
+Flow range for v: -12.477021 to 14.015447
+Max flow magnitude: 16.180608
+RMSE_u: 0.893835
+RMSE_v: 0.572334
+
+Params used: n_s=5/10, n_t=7/10, 
+lambda_s: 0.500000
+lambda_t: 0.050000
+dt_u: 1.904556e-04
+dt_v: 2.525958e-04
+
+Flow range for u: -13.105298 to 12.391980
+Flow range for v: -12.704830 to 14.641210
+Max flow magnitude: 16.853788
+RMSE_u: 0.890758
+RMSE_v: 0.574330
+
+Params used: n_s=5/10, n_t=8/10, 
+lambda_s: 0.500000
+lambda_t: 0.010000
+dt_u: 1.904614e-04
+dt_v: 2.526060e-04
+
+Flow range for u: -13.372077 to 12.744758
+Flow range for v: -12.870256 to 15.217060
+Max flow magnitude: 17.465748
+RMSE_u: 0.887987
+RMSE_v: 0.576222
+
+Params used: n_s=5/10, n_t=9/10, 
+lambda_s: 0.500000
+lambda_t: 0.005000
+dt_u: 1.904621e-04
+dt_v: 2.526072e-04
+
+Flow range for u: -13.406631 to 12.791365
+Flow range for v: -12.889245 to 15.295215
+Max flow magnitude: 17.548407
+RMSE_u: 0.887600
+RMSE_v: 0.576478
+
+Params used: n_s=5/10, n_t=10/10, 
+lambda_s: 0.500000
+lambda_t: 0.001000
+dt_u: 1.904627e-04
+dt_v: 2.526083e-04
+
+Flow range for u: -13.434373 to 12.828882
+Flow range for v: -12.904136 to 15.358457
+Max flow magnitude: 17.615079
+RMSE_u: 0.887301
+RMSE_v: 0.576691
+
+Params used: n_s=6/10, n_t=1/10, 
+lambda_s: 0.100000
+lambda_t: 100.000000
+dt_u: 1.770799e-04
+dt_v: 2.295950e-04
+
+Flow range for u: -2.937141 to 3.461704
+Flow range for v: -3.630948 to 3.533138
+Max flow magnitude: 3.693768
+RMSE_u: 0.990488
+RMSE_v: 0.494552
+
+Params used: n_s=6/10, n_t=2/10, 
+lambda_s: 0.100000
+lambda_t: 10.000000
+dt_u: 1.891372e-04
+dt_v: 2.502819e-04
+
+Flow range for u: -5.629070 to 4.862499
+Flow range for v: -8.091582 to 7.778478
+Max flow magnitude: 8.392736
+RMSE_u: 0.856463
+RMSE_v: 0.511824
+
+Params used: n_s=6/10, n_t=3/10, 
+lambda_s: 0.100000
+lambda_t: 5.000000
+dt_u: 1.898553e-04
+dt_v: 2.515410e-04
+
+Flow range for u: -7.004330 to 5.819101
+Flow range for v: -9.050380 to 9.776450
+Max flow magnitude: 9.804897
+RMSE_u: 0.848822
+RMSE_v: 0.528099
+
+Params used: n_s=6/10, n_t=4/10, 
+lambda_s: 0.100000
+lambda_t: 1.000000
+dt_u: 1.904338e-04
+dt_v: 2.525575e-04
+
+Flow range for u: -11.356466 to 9.783050
+Flow range for v: -13.455832 to 12.065034
+Max flow magnitude: 14.861100
+RMSE_u: 0.889901
+RMSE_v: 0.579891
+
+Params used: n_s=6/10, n_t=5/10, 
+lambda_s: 0.100000
+lambda_t: 0.500000
+dt_u: 1.905064e-04
+dt_v: 2.526851e-04
+
+Flow range for u: -13.282621 to 11.738927
+Flow range for v: -15.330881 to 13.545665
+Max flow magnitude: 17.220567
+RMSE_u: 0.923396
+RMSE_v: 0.604958
+
+Params used: n_s=6/10, n_t=6/10, 
+lambda_s: 0.100000
+lambda_t: 0.100000
+dt_u: 1.905645e-04
+dt_v: 2.527873e-04
+
+Flow range for u: -17.365284 to 17.332109
+Flow range for v: -19.867775 to 18.350826
+Max flow magnitude: 23.157957
+RMSE_u: 0.941956
+RMSE_v: 0.644247
+
+Params used: n_s=6/10, n_t=7/10, 
+lambda_s: 0.100000
+lambda_t: 0.050000
+dt_u: 1.905717e-04
+dt_v: 2.528001e-04
+
+Flow range for u: -18.690178 to 19.111860
+Flow range for v: -20.692654 to 20.138351
+Max flow magnitude: 24.388467
+RMSE_u: 0.947555
+RMSE_v: 0.654343
+
+Params used: n_s=6/10, n_t=8/10, 
+lambda_s: 0.100000
+lambda_t: 0.010000
+dt_u: 1.905775e-04
+dt_v: 2.528103e-04
+
+Flow range for u: -19.952704 to 20.898606
+Flow range for v: -21.393804 to 21.975953
+Max flow magnitude: 25.528149
+RMSE_u: 0.953680
+RMSE_v: 0.664925
+
+Params used: n_s=6/10, n_t=9/10, 
+lambda_s: 0.100000
+lambda_t: 0.005000
+dt_u: 1.905783e-04
+dt_v: 2.528116e-04
+
+Flow range for u: -20.126947 to 21.152362
+Flow range for v: -21.483201 to 22.241078
+Max flow magnitude: 25.682961
+RMSE_u: 0.954588
+RMSE_v: 0.666473
+
+Params used: n_s=6/10, n_t=10/10, 
+lambda_s: 0.100000
+lambda_t: 0.001000
+dt_u: 1.905788e-04
+dt_v: 2.528126e-04
+
+Flow range for u: -20.269120 to 21.360640
+Flow range for v: -21.554797 to 22.459554
+Max flow magnitude: 25.808850
+RMSE_u: 0.955346
+RMSE_v: 0.667757
+
+Params used: n_s=7/10, n_t=1/10, 
+lambda_s: 0.050000
+lambda_t: 100.000000
+dt_u: 1.770924e-04
+dt_v: 2.296161e-04
+
+Flow range for u: -2.939095 to 3.464290
+Flow range for v: -3.645256 to 3.544234
+Max flow magnitude: 3.702119
+RMSE_u: 0.990332
+RMSE_v: 0.494656
+
+Params used: n_s=7/10, n_t=2/10, 
+lambda_s: 0.050000
+lambda_t: 10.000000
+dt_u: 1.891515e-04
+dt_v: 2.503070e-04
+
+Flow range for u: -5.667281 to 4.861035
+Flow range for v: -8.230335 to 8.269610
+Max flow magnitude: 8.538329
+RMSE_u: 0.852016
+RMSE_v: 0.513777
+
+Params used: n_s=7/10, n_t=3/10, 
+lambda_s: 0.050000
+lambda_t: 5.000000
+dt_u: 1.898698e-04
+dt_v: 2.515663e-04
+
+Flow range for u: -7.091723 to 6.019281
+Flow range for v: -9.241842 to 10.584456
+Max flow magnitude: 10.596420
+RMSE_u: 0.841214
+RMSE_v: 0.531507
+
+Params used: n_s=7/10, n_t=4/10, 
+lambda_s: 0.050000
+lambda_t: 1.000000
+dt_u: 1.904483e-04
+dt_v: 2.525830e-04
+
+Flow range for u: -11.756182 to 10.682347
+Flow range for v: -14.812878 to 13.216939
+Max flow magnitude: 16.209619
+RMSE_u: 0.881022
+RMSE_v: 0.587351
+
+Params used: n_s=7/10, n_t=5/10, 
+lambda_s: 0.050000
+lambda_t: 0.500000
+dt_u: 1.905209e-04
+dt_v: 2.527107e-04
+
+Flow range for u: -13.768862 to 13.154353
+Flow range for v: -16.892244 to 14.200330
+Max flow magnitude: 18.774890
+RMSE_u: 0.920344
+RMSE_v: 0.615118
+
+Params used: n_s=7/10, n_t=6/10, 
+lambda_s: 0.050000
+lambda_t: 0.100000
+dt_u: 1.905790e-04
+dt_v: 2.528129e-04
+
+Flow range for u: -19.547921 to 20.182453
+Flow range for v: -22.509916 to 22.679933
+Max flow magnitude: 25.759110
+RMSE_u: 0.947033
+RMSE_v: 0.665674
+
+Params used: n_s=7/10, n_t=7/10, 
+lambda_s: 0.050000
+lambda_t: 0.050000
+dt_u: 1.905862e-04
+dt_v: 2.528257e-04
+
+Flow range for u: -21.283421 to 22.828269
+Flow range for v: -23.575032 to 25.672578
+Max flow magnitude: 28.425928
+RMSE_u: 0.955385
+RMSE_v: 0.680434
+
+Params used: n_s=7/10, n_t=8/10, 
+lambda_s: 0.050000
+lambda_t: 0.010000
+dt_u: 1.905921e-04
+dt_v: 2.528359e-04
+
+Flow range for u: -24.280495 to 26.054197
+Flow range for v: -24.409876 to 29.515864
+Max flow magnitude: 32.808701
+RMSE_u: 0.963517
+RMSE_v: 0.697683
+
+Params used: n_s=7/10, n_t=9/10, 
+lambda_s: 0.050000
+lambda_t: 0.005000
+dt_u: 1.905928e-04
+dt_v: 2.528372e-04
+
+Flow range for u: -24.724178 to 26.527172
+Flow range for v: -24.494372 to 30.098671
+Max flow magnitude: 33.474700
+RMSE_u: 0.964991
+RMSE_v: 0.700460
+
+Params used: n_s=7/10, n_t=10/10, 
+lambda_s: 0.050000
+lambda_t: 0.001000
+dt_u: 1.905934e-04
+dt_v: 2.528382e-04
+
+Flow range for u: -25.091830 to 26.918771
+Flow range for v: -24.557049 to 30.585976
+Max flow magnitude: 34.031699
+RMSE_u: 0.966275
+RMSE_v: 0.702825
+
+Params used: n_s=8/10, n_t=1/10, 
+lambda_s: 0.010000
+lambda_t: 100.000000
+dt_u: 1.771025e-04
+dt_v: 2.296330e-04
+
+Flow range for u: -2.940657 to 3.466446
+Flow range for v: -3.657327 to 3.553541
+Max flow magnitude: 3.709126
+RMSE_u: 0.990159
+RMSE_v: 0.494733
+
+Params used: n_s=8/10, n_t=2/10, 
+lambda_s: 0.010000
+lambda_t: 10.000000
+dt_u: 1.891629e-04
+dt_v: 2.503270e-04
+
+Flow range for u: -5.700997 to 4.858928
+Flow range for v: -8.360207 to 8.731019
+Max flow magnitude: 8.731215
+RMSE_u: 0.848394
+RMSE_v: 0.515789
+
+Params used: n_s=8/10, n_t=3/10, 
+lambda_s: 0.010000
+lambda_t: 5.000000
+dt_u: 1.898813e-04
+dt_v: 2.515866e-04
+
+Flow range for u: -7.163917 to 6.201549
+Flow range for v: -9.408360 to 11.414485
+Max flow magnitude: 11.417453
+RMSE_u: 0.834371
+RMSE_v: 0.535406
+
+Params used: n_s=8/10, n_t=4/10, 
+lambda_s: 0.010000
+lambda_t: 1.000000
+dt_u: 1.904599e-04
+dt_v: 2.526034e-04
+
+Flow range for u: -12.133244 to 11.542311
+Flow range for v: -16.342752 to 14.565312
+Max flow magnitude: 17.704283
+RMSE_u: 0.872019
+RMSE_v: 0.596574
+
+Params used: n_s=8/10, n_t=5/10, 
+lambda_s: 0.010000
+lambda_t: 0.500000
+dt_u: 1.905325e-04
+dt_v: 2.527311e-04
+
+Flow range for u: -14.263431 to 14.994012
+Flow range for v: -19.089320 to 15.799062
+Max flow magnitude: 20.970324
+RMSE_u: 0.909690
+RMSE_v: 0.626746
+
+Params used: n_s=8/10, n_t=6/10, 
+lambda_s: 0.010000
+lambda_t: 0.100000
+dt_u: 1.905906e-04
+dt_v: 2.528333e-04
+
+Flow range for u: -22.604641 to 24.317319
+Flow range for v: -25.943215 to 29.925056
+Max flow magnitude: 32.412751
+RMSE_u: 0.949872
+RMSE_v: 0.695604
+
+Params used: n_s=8/10, n_t=7/10, 
+lambda_s: 0.010000
+lambda_t: 0.050000
+dt_u: 1.905979e-04
+dt_v: 2.528461e-04
+
+Flow range for u: -26.471558 to 28.487061
+Flow range for v: -27.256527 to 35.750410
+Max flow magnitude: 38.763659
+RMSE_u: 0.964536
+RMSE_v: 0.721265
+
+Params used: n_s=8/10, n_t=8/10, 
+lambda_s: 0.010000
+lambda_t: 0.010000
+dt_u: 1.906037e-04
+dt_v: 2.528563e-04
+
+Flow range for u: -30.612576 to 32.891931
+Flow range for v: -29.169495 to 42.655829
+Max flow magnitude: 46.249084
+RMSE_u: 0.990937
+RMSE_v: 0.758748
+
+Params used: n_s=8/10, n_t=9/10, 
+lambda_s: 0.010000
+lambda_t: 0.005000
+dt_u: 1.906044e-04
+dt_v: 2.528576e-04
+
+Flow range for u: -31.206834 to 33.518738
+Flow range for v: -29.665278 to 43.760548
+Max flow magnitude: 47.435001
+RMSE_u: 0.996303
+RMSE_v: 0.765962
+
+Params used: n_s=8/10, n_t=10/10, 
+lambda_s: 0.010000
+lambda_t: 0.001000
+dt_u: 1.906050e-04
+dt_v: 2.528586e-04
+
